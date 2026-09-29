@@ -1,0 +1,6 @@
+{
+  "short_name": "SEPM App",
+  "name": "SEPM Fullstack Project",
+  "start_url": ".",
+  "display": "standalone"
+}
