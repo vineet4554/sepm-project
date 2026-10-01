@@ -1,9 +1,15 @@
-# SEPM Project v1.0.0
+# SEPM Project v2.0.0 - Final Version
+
+## Features Complete
+- **Authentication**: JWT based Login/Registration.
+- **Role-Based Access Control**: Admins vs Regular Users.
+- **Admin Dashboard**: Search, filter, and delete users dynamically.
+- **Testing**: Backend unit tests and Frontend rendering tests.
 
 ## Setup Instructions
-1. Navigate to `/backend`, run `npm install` and `npm start`.
-2. Navigate to `/frontend`, run `npm install` and `npm start`.
-3. Open `http://localhost:3000`.
+1. Backend: `cd backend && npm install && npm start`
+2. Frontend: `cd frontend && npm install && npm start`
+3. Access UI at `http://localhost:3000`
 
 ## Contributors
 - vineet4554
