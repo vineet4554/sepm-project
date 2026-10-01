@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
+import api from '../services/api';
 
-const Login = () => {
+const Login = ({ setAuthUser }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
-  
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
   
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    console.log('Logging in...', formData);
+    try {
+      const res = await api.post('/login', formData);
+      localStorage.setItem('token', res.data.token);
+      setAuthUser(res.data.user);
+    } catch (err) {
+      alert('Login failed');
+    }
   };
 
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <h2>Login</h2>
       <form onSubmit={onSubmit}>
-        <input type="email" name="email" value={formData.email} onChange={onChange} required />
-        <input type="password" name="password" value={formData.password} onChange={onChange} required />
+        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={onChange} required /><br/>
+        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={onChange} required /><br/>
         <button type="submit">Login</button>
       </form>
     </div>
